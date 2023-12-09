@@ -9,19 +9,19 @@ for line in input_data[2:]:
     network[node] = (left, right)
 
 
-def direction_sequence():
+def direction_sequence() -> str:
     sequence = input_data[0]
     while True:
         for direction in sequence:
             yield direction
 
 
-direction = direction_sequence()
 current_node = 'AAA'
 counter = 0
+instruction = direction_sequence()
 while current_node != 'ZZZ':
-    left, right = network[current_node]
-    current_node = left if next(direction) == 'L' else right
+    next_left, next_right = network[current_node]
+    current_node = next_left if next(instruction) == 'L' else next_right
     counter += 1
 
 print(counter)

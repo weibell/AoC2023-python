@@ -1,4 +1,5 @@
 import re
+import math
 
 with open('input.txt', 'r') as f:
     input_data = f.read().splitlines()
@@ -9,21 +10,24 @@ for line in input_data[2:]:
     network[node] = (left, right)
 
 
-def direction_sequence():
+def direction_sequence() -> str:
     sequence = input_data[0]
     while True:
         for direction in sequence:
             yield direction
 
 
-direction = direction_sequence()
-current_nodes = [node for node in network.keys() if node.endswith('A')]
-counter = 0
-while not all(node.endswith('Z') for node in current_nodes):
-    next_direction = next(direction)
-    for i, current_node in enumerate(current_nodes):
-        left, right = network[current_node]
-        current_nodes[i] = left if next_direction == 'L' else right
-    counter += 1
+counters = []
+starting_nodes = [node for node in network.keys() if node.endswith('A')]
+for starting_node in starting_nodes:
+    current_node = starting_node
+    counter = 0
+    instruction = direction_sequence()
+    while not current_node.endswith('Z'):
+        next_left, next_right = network[current_node]
+        current_node = next_left if next(instruction) == 'L' else next_right
+        counter += 1
+    counters.append(counter)
 
-print(counter)
+# the input data appears to be designed to allow this trick
+print(math.lcm(*counters))
