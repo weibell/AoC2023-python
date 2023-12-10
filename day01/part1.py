@@ -1,6 +1,4 @@
-with open('input.txt', 'r') as f:
-    input_data = f.read().splitlines()
-
+input_data = open('input.txt').read().splitlines()
 calibration_values = []
 for line in input_data:
     digits = [char for char in line if char in '0123456789']

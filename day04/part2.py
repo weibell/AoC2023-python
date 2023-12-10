@@ -1,8 +1,6 @@
 import re
 
-with open('input.txt', 'r') as f:
-    input_data = f.read().splitlines()
-
+input_data = open('input.txt').read().splitlines()
 card_counter = {card_number: 1 for card_number in range(1, len(input_data)+1)}
 for card_number, line in enumerate(input_data, start=1):
     left, right = line.split(':')[1].split('|')

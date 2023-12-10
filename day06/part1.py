@@ -1,9 +1,7 @@
 import math
 import re
 
-with open('input.txt', 'r') as f:
-    input_data = f.read().splitlines()
-
+input_data = open('input.txt').read().splitlines()
 race_durations = [int(ms) for ms in re.findall(r'\d+', input_data[0])]
 record_distances = [int(mm) for mm in re.findall(r'\d+', input_data[1])]
 

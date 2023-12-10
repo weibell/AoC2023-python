@@ -1,8 +1,6 @@
 import re
 
-with open('input.txt', 'r') as f:
-    input_data = f.read().replace(' ', '')
-
+input_data = open('input.txt').read().replace(' ', '')
 race_duration = int(re.findall(r'\d+', input_data)[0])
 record_distance = int(re.findall(r'\d+', input_data)[1])
 

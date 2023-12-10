@@ -1,9 +1,7 @@
 import re
 import math
 
-with open('input.txt', 'r') as f:
-    input_data = f.read().splitlines()
-
+input_data = open('input.txt').read().splitlines()
 network = {}
 for line in input_data[2:]:
     node, left, right = re.findall(r'(\w{3}) = \((\w{3}), (\w{3})\)', line)[0]

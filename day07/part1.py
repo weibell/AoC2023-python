@@ -1,7 +1,3 @@
-with open('input.txt', 'r') as f:
-    input_data = f.read().splitlines()
-
-
 def hand_type(hand: str) -> int:
     ordered_types = [
         [5],             # Five of a kind
@@ -22,6 +18,7 @@ def cards_as_int(hand: str) -> tuple:
     return (ordered_labels.index(card) for card in hand)
 
 
+input_data = open('input.txt').read().splitlines()
 hands = []  # (sortable) tuples of type, card values and bid
 for line in input_data:
     hand, bid = line.split(' ')

@@ -1,8 +1,6 @@
 import re
 
-with open('input.txt', 'r') as f:
-    input_data = f.read().splitlines()
-
+input_data = open('input.txt').read().splitlines()
 maps = []
 for line in input_data[2:]:
     if 'map' in line:
@@ -12,11 +10,9 @@ for line in input_data[2:]:
         maps[-1][range(source, source+length)] \
             = range(destination, destination+length)
 
-
 # The strategy used here is an improvement over a naive brute force approach,
 # but can be optimized by checking whole ranges at a time (while taking
 # into account where they 'split')
-
 def reverse_lookup_seed(location: int) -> int:
     value = location
     for current_map in reversed(maps):

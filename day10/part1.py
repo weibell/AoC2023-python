@@ -1,6 +1,3 @@
-with open('input.txt', 'r') as f:
-    input_data = f.read().splitlines()
-
 N = (0, -1)
 S = (0, 1)
 E = (1, 0)
@@ -14,6 +11,7 @@ direction_mappings = {
     'F': (S, E),
 }
 
+input_data = open('input.txt').read().splitlines()
 graph = {}  # of directions per coordinate
 start = None
 for y, line in enumerate(input_data):

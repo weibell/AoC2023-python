@@ -1,8 +1,6 @@
 import re
 
-with open('input.txt', 'r') as f:
-    input_data = f.read().splitlines()
-
+input_data = open('input.txt').read().splitlines()
 scores = []
 for line in input_data:
     left, right = line.split(':')[1].split('|')

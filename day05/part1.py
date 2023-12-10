@@ -1,8 +1,6 @@
 import re
 
-with open('input.txt', 'r') as f:
-    input_data = f.read().splitlines()
-
+input_data = open('input.txt').read().splitlines()
 maps = []
 for line in input_data[2:]:
     if 'map' in line:

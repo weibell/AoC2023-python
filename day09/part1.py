@@ -1,13 +1,11 @@
 import re
 
-with open('input.txt', 'r') as f:
-    input_data = f.read().splitlines()
-
 
 def sequence_differences(sequence: list[int]) -> list[int]:
     return [sequence[i] - sequence[i - 1] for i in range(1, len(sequence))]
 
 
+input_data = open('input.txt').read().splitlines()
 extrapolated_values = []
 histories = [[int(value) for value in re.findall(r'-?\d+', history)]
              for history in input_data]
