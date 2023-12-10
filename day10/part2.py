@@ -44,8 +44,7 @@ def initial_direction_options(start: tuple[int, int]) -> list[tuple[int, int]]:
 
 
 x, y = start
-start_options = initial_direction_options(start)
-current_coords = move(start, start_options[0])
+current_coords = move(start, initial_direction_options(start)[0])
 visited = {start}
 
 while True:
@@ -84,9 +83,9 @@ for x in range(width):
 
         if is_horizontal_pipe:
             is_enclosed = not is_enclosed
-        if is_starting_corner:
+        elif is_starting_corner:
             source_direction = E if char == 'F' else W
-        if is_ending_corner:
+        elif is_ending_corner:
             target_direction = E if char == 'L' else W
             if target_direction != source_direction:
                 is_enclosed = not is_enclosed

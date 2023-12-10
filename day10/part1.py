@@ -32,8 +32,8 @@ def initial_direction(start: tuple[int, int]) -> tuple[int, int]:
     for direction in (N, S, E, W):
         expected_adjacent_chars = [char for char, connections in direction_mappings.items()
                                    if direction in connections]
-        x, y = move(start, direction)
-        if input_data[y][x] in expected_adjacent_chars:  # skipping boundary checks
+        x, y = move(start, direction)  # skipping boundary checks
+        if input_data[y][x] in expected_adjacent_chars:
             return direction
 
 
