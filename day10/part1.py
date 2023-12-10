@@ -29,11 +29,15 @@ def move(from_coordinates: tuple[int, int], to: tuple[int, int]) -> tuple[int, i
 
 
 def initial_direction(start: tuple[int, int]) -> tuple[int, int]:
+    expected_adjacent_chars = {
+        N: '|7F',
+        S: '|LJ',
+        E: '-7J',
+        W: '-LF'
+    }
     for direction in (N, S, E, W):
-        expected_adjacent_chars = [char for char, connections in direction_mappings.items()
-                                   if direction in connections]
         x, y = move(start, direction)  # skipping boundary checks
-        if input_data[y][x] in expected_adjacent_chars:
+        if input_data[y][x] in expected_adjacent_chars[direction]:
             return direction
 
 
