@@ -4,4 +4,5 @@ My Python solutions for the Advent of Code 2023 event (https://adventofcode.com/
 Solutions aim for:
 - readability and elegance
 - reasonable optimizations, nothing crazy
+- small number of imports, if any
 - correctness (obviously)
