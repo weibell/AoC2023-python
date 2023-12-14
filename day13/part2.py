@@ -27,7 +27,6 @@ empty_rows = [y for y, row in enumerate(input_data) if row == '']
 totals = 0
 for start, end in zip([-1]+empty_rows, empty_rows+[len(input_data)]):
     pattern = input_data[start+1:end]
-
     totals += find_vertical_reflection(pattern, differences=1) or 0
     totals += 100 * (find_horizontal_reflection(pattern, differences=1) or 0)
 
