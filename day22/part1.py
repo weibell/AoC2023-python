@@ -45,7 +45,7 @@ def is_falling(brick: Brick, invisible_brick_id: int = -1) -> bool:
 
 
 def drop_tick(invisible_brick_id: int = -1) -> set[int]:
-    falling_brick_ids = set()
+    falling_brick_ids = set()  # return value
     max_z = max(z for _, _, z in world.keys())
     min_z = 1 if invisible_brick_id == - 1 \
         else max(bricks[invisible_brick_id].start.z, bricks[invisible_brick_id].end.z) + 1
